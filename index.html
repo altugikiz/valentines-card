@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Card</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="question active" id="q1">
+    <h1 class="message">Will you be my Valentine? ❤️</h1>
+    <div class="btn-container">
+      <button class="btn" onclick="nextQuestion(true, 1)">Yes!</button>
+      <div class="no-btn-container">
+        <button class="btn no" onclick="handleNo()" onmouseover="dodgeNo()">No</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="question" id="q2">
+    <h1 class="message">Would you like to go on a date with me? ❣️</h1>
+    <div class="btn-container">
+      <button class="btn" onclick="nextQuestion(true, 2)">Of course!</button>
+      <div class="no-btn-container">
+        <button class="btn no" onclick="handleNo()" onmouseover="dodgeNo()">No way</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="question" id="q3">
+    <h1 class="message">Can I have a hug? 🥺</h1>
+    <div class="btn-container">
+      <button class="btn" onclick="nextQuestion(true, 3)">Come here!</button>
+      <div class="no-btn-container">
+        <button class="btn no" onclick="handleNo()" onmouseover="dodgeNo()">Nope</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <canvas id="fireworks"></canvas>
+<div id="heart">❤️</div>
+
+</body>
+</html>
