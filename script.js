@@ -2,25 +2,30 @@ document.addEventListener("DOMContentLoaded", () => {
     const intro = document.getElementById("intro-name");
     const questions = document.querySelectorAll(".question");
   
-    questions.forEach(q => q.style.display = "none");
+    questions.forEach(q => {
+      q.classList.remove("active");
+      q.style.display = "none";
+    });
   
     setTimeout(() => {
       intro.style.display = "none";
-      questions.forEach(q => {
-        if (q.id === "q1") {
-          q.classList.add("active");
-          q.style.display = "block";
-        }
-      });
+      const first = document.getElementById("q1");
+      first.classList.add("active");
+      first.style.display = "block";
     }, 2200);
   });
   
   function nextQuestion(answer, currentId) {
     if (answer) {
-      document.getElementById("q" + currentId).classList.remove("active");
+      const current = document.getElementById("q" + currentId);
       const next = document.getElementById("q" + (currentId + 1));
+  
+      current.classList.remove("active");
+      current.style.display = "none";
+  
       if (next) {
         next.classList.add("active");
+        next.style.display = "block";
       } else {
         showCelebration();
       }
@@ -49,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function showCelebration() {
     const heart = document.getElementById("heart");
     heart.style.display = "block";
+  
     setTimeout(() => {
       heart.style.display = "none";
       alert("I love you, Zeynep 💘");
