@@ -36,19 +36,17 @@ document.addEventListener("DOMContentLoaded", () => {
     alert("But... but... please?");
   }
   
-  function dodgeNo() {
-    const noBtn = document.querySelector(".btn.no");
-    const container = document.querySelector(".btn-container");
-  
+  function dodgeNo(button) {
+    const container = button.parentElement.parentElement;
     const containerRect = container.getBoundingClientRect();
-    const btnRect = noBtn.getBoundingClientRect();
+    const btnRect = button.getBoundingClientRect();
   
     let randX = Math.random() * (containerRect.width - btnRect.width);
     let randY = Math.random() * (containerRect.height - btnRect.height);
   
-    noBtn.style.position = "absolute";
-    noBtn.style.left = `${randX}px`;
-    noBtn.style.top = `${randY}px`;
+    button.style.position = "absolute";
+    button.style.left = `${randX}px`;
+    button.style.top = `${randY}px`;
   }
   
   function showCelebration() {
