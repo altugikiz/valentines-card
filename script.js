@@ -1,11 +1,28 @@
-function nextQuestion(answer, currentId) {
+document.addEventListener("DOMContentLoaded", () => {
+    const intro = document.getElementById("intro-name");
+    const questions = document.querySelectorAll(".question");
+  
+    questions.forEach(q => q.style.display = "none");
+  
+    setTimeout(() => {
+      intro.style.display = "none";
+      questions.forEach(q => {
+        if (q.id === "q1") {
+          q.classList.add("active");
+          q.style.display = "block";
+        }
+      });
+    }, 2200);
+  });
+  
+  function nextQuestion(answer, currentId) {
     if (answer) {
       document.getElementById("q" + currentId).classList.remove("active");
       const next = document.getElementById("q" + (currentId + 1));
       if (next) {
         next.classList.add("active");
       } else {
-        showCelebration(); // 🎉 Gösteri başlasın!
+        showCelebration();
       }
     }
   }
@@ -29,16 +46,14 @@ function nextQuestion(answer, currentId) {
     noBtn.style.top = `${randY}px`;
   }
   
-  // 🎉 Kalp ve Havai Fişek Efekti
   function showCelebration() {
-    // Kalbi göster
     const heart = document.getElementById("heart");
     heart.style.display = "block";
     setTimeout(() => {
       heart.style.display = "none";
+      alert("I love you, Zeynep 💘");
     }, 1000);
   
-    // Havai fişek efektini başlat
     launchFireworks();
   }
   
